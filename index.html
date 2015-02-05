@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Let's Chat</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <script type="html/template" id="taskTmpl">
+    <article data-taskid="<%= _id %>">
+      <h3><%= title %></h3>
+      <button class="deleteTask">Delete</button>
+      <form class="editTask" action="">
+        <div class="form-group">
+          <input type="text" class="form-control" name="editTitle" value="<%= title %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Task</button>
+      </form>
+    </article>
+
+  </script>
+</head>
+<body>
+<header>
+    <h1>Let's Chat</h1>
+</header>
+<div class="container">
+  <div class="row">
+    <section class="col-md-8">
+
+    </section>
+    <form id="createTask" action="">
+      <div class="form-group">
+        <input type="text" class="form-control" name="newTitle" placeholder="Submit Your Task Here">
+      </div>
+
+      <button type="submit" class="btn btn-primary">you got this</button>
+    </form>
+
+  </div>
+  
+</div>
+<footer></footer>
+
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="main.js"></script>
+</body>
+</html>
