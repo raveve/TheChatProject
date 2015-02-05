@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Poiret One', cursive;
+  height: 900px;
 }
 article {
   background-color:#FFCC00;
@@ -23,17 +24,21 @@ article {
 h1 {
   font-size: 60px;
   color: black;
-  margin-left: 30px;
+  margin-left: 10%;
 
+}
+#createtask {
+  width: 500px;
 }
 .form-control {
   background-color:#FFCC00;
   border: 2px solid black;
-  width: 50%;
-  margin-left: 0px;
-  padding: 0px;
+  width: 45%;
+  margin-left: 12px;
+
 }
-input.form-control {
+#username {
+  width: 30%;
 }
 .btn-primary {
   background-color:#FFCC00;
