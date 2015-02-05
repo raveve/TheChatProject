@@ -54,7 +54,7 @@ var tasks = {
 
   },
   config: {
-    url: 'http://tiy-fee-rest.herokuapp.com/collections/banana',
+    url: 'http://tiy-fee-rest.herokuapp.com/collections/catchat',
 
   },
   render: function (data, tmpl, $el) {

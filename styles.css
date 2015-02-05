@@ -1,18 +1,25 @@
+/********** COLORS **********
+Hat red: #ED1D25
+****************************/
+
+
 * {
   color: black;
 }
-body {
-  background: url(http://i1220.photobucket.com/albums/dd441/Mama-Cass/Layouts/drseuss22-hh297-fh288.png);
+.background {
+  background: url("drseuss.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+  height: 900px;
   font-family: 'Poiret One', cursive;
 }
 article {
   background-color:#FFCC00;
   border: 2px solid black;
-  margin-left: 0px;
-  padding: 0px;
-  width: 70%;
+  margin-bottom: 5px;
+}
+section {
+  height: 800px;
 }
 .editTask {
   display: none;
@@ -21,19 +28,30 @@ article {
   display: block;
 }
 h1 {
-  font-size: 60px;
+  font-size: 52px;
   color: black;
-  margin-left: 30px;
-
+  text-align: center;
 }
 .form-control {
-  background-color:#FFCC00;
+  background-color:#ED1D25;
   border: 2px solid black;
-  width: 50%;
-  margin-left: 0px;
+  margin: 0px;
   padding: 0px;
 }
-input.form-control {
+.custom-input {
+  margin-top: -350px;
+}
+.custom-input input::-webkit-input-placeholder {
+  color: black;
+}
+.custom-input input::-moz-placeholder {
+  color: black;
+}
+.custom-input input:-moz-placeholder {   /* Older versions of Firefox */
+  color: black;
+}
+.custom-input input:-ms-input-placeholder {
+  color: black;
 }
 .btn-primary {
   background-color:#FFCC00;
@@ -47,7 +65,6 @@ button {
   background-color: #52c6d5;
   color: white;
 }
-
 
 /*****TESTING AREA*****/
 /*****TESTING AREA*****/
