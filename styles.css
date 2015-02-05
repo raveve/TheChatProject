@@ -1,5 +1,5 @@
 /********** COLORS **********
-Hat red: #ED1D25
+Hat red: #ED1D25  
 ****************************/
 
 * {
@@ -33,7 +33,7 @@ h1 {
 }
 .form-control {
   background-color:#ED1D25;
-  border: 2px solid black;
+  border: 2px solid blue;
   margin: 0px;
   padding: 0px;
 }
@@ -46,14 +46,14 @@ h1 {
 .custom-input input::-moz-placeholder {
   color: black;
 }
-.custom-input input:-moz-placeholder {   /* Older versions of Firefox */
+.custom-input input:-moz-placeholder {  /* Older versions of Firefox */
   color: black;
 }
 .custom-input input:-ms-input-placeholder {
   color: black;
 }
 .btn-primary {
-  background-color:#FFCC00;
+  background-color:#FFCC00  ;
   border: 2px solid black;
 }
 .btn-primary:hover {
@@ -61,7 +61,7 @@ h1 {
   border: 2px solid black;
 }
 button {
-  background-color: #52c6d5;
+  background-color: #52c6d5  ;
   color: white;
 }
 

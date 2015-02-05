@@ -45,9 +45,9 @@ var tasks = {
 
     $('section').on('click', '.deleteTask', function (event) {
       event.preventDefault();
-       var taskId = $(this).closest('article').data('taskid');
-       console.log(taskId);
-       tasks.deleteTask(taskId);
+      var taskId = $(this).closest('article').data('taskid');
+      console.log(taskId);
+      tasks.deleteTask(taskId);
     });
 
     $('section').on('click', '.completeTask', tasks.completeTask);
