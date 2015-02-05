@@ -6,13 +6,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Poiret One', cursive;
-  text-align: center;
 }
 article {
   background-color:#FFCC00;
   border: 2px solid black;
-  margin-left: 37%;
-  width: 78%;
+  margin-left: 0px;
+  padding: 0px;
+  width: 70%;
 }
 .editTask {
   display: none;
@@ -22,13 +22,15 @@ article {
 }
 h1 {
   font-size: 60px;
+  color: black;
+  margin-left: 30px;
 
 }
 .form-control {
   background-color:#FFCC00;
   border: 2px solid black;
   width: 50%;
-  margin-left: 25%;
+  margin-left: 0px;
   padding: 0px;
 }
 input.form-control {
@@ -40,9 +42,6 @@ input.form-control {
 .btn-primary:hover {
   background-color:gray;
   border: 2px solid black;
-}
-h1 {
-  color: black;
 }
 button {
   background-color: #52c6d5;
