@@ -9,8 +9,9 @@ Hat red: #ED1D25  
  background: url("drseuss.png");
  background-repeat: no-repeat;
  background-size: 100%;
- height: 900px;
+ height: 730px;
  font-family: 'Poiret One', cursive;
+ border: 3px solid #ed1d25
 }
 article {
 
@@ -19,7 +20,8 @@ article {
   margin-bottom: 5px;
 }
 section {
- height: 800px;
+ height: 600px;
+ overflow: scroll;
 }
 .editTask {
  display: none;
@@ -56,7 +58,7 @@ p {
   margin: 5px;
 }
 .custom-input {
-  margin-top: -400px;
+  margin-top: -300px;
 }
 .custom-input input::-webkit-input-placeholder {
  color: black;

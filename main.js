@@ -1,9 +1,17 @@
 $(document).ready(function () {
   chat.init();
   // chat.deleteMessage("54d5021eb1cce4030000003e");
+  setInterval(function(){
+    chat.renderMessages();
+  }, 1000);
 
 });
 
+
+
+//function populateStorage() {
+//localStorage.setItem('article');
+// }
 
 var chat = {
 
@@ -23,11 +31,16 @@ var chat = {
       console.log("submit working");
       var newMessage = {
         user: $(this).find('input[name="userName"]').val(),
-        message: $(this).find('input[name="newMessage"]').val()
+        message: $(this).find('input[name="newMessage"]').val(),
       };
       console.log(newMessage);
 
       chat.createMessage(newMessage);
+      function populatestorage(newMessage) {
+        localStorage.setItem(newMessage);
+        console.log("my local storage")
+      }
+
     });
 
     $('section').on('click', '.delete-message', function (event) {
@@ -103,15 +116,6 @@ var chat = {
         console.log(err);
       }
     });
-
-  },
-
-
-  completeTask: function (event) {
-
-  },
-
-  updateTask: function (id, task) {
 
   }
 };
