@@ -2,8 +2,15 @@ $(document).ready(function () {
   chat.init();
   // chat.deleteMessage("54d5021eb1cce4030000003e");
 
+  setInterval(function (){
+    chat.renderMessages();
+  }, 1000);
+
 });
 
+function populateStorage() {
+  localStorage.setItem('article');
+};
 
 var chat = {
 
@@ -28,6 +35,7 @@ var chat = {
       console.log(newMessage);
 
       chat.createMessage(newMessage);
+
     });
 
     $('section').on('click', '.delete-message', function (event) {
@@ -96,22 +104,14 @@ var chat = {
       url: chat.config.url + '/' + id,
       type: 'DELETE',
       success: function (data) {
-        console.log(data);
-        chat.renderMessages();
-      },
+      console.log(data);
+      chat.renderMessages();
+    },
       error: function (err) {
-        console.log(err);
-      }
-    });
+      console.log(err);
+    }
+  });
 
-  },
+ }
 
-
-  completeTask: function (event) {
-
-  },
-
-  updateTask: function (id, task) {
-
-  }
 };
