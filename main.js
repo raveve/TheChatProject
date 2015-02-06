@@ -1,141 +1,119 @@
 $(document).ready(function () {
-  tasks.init();
+
+ chat.init();
+ // chat.deleteMessage("54d5021eb1cce4030000003e");
 
 });
 
 
-var tasks = {
+var chat = {
 
-  init: function () {
-    tasks.initStyling();
-    tasks.initEvents();
+ init: function () {
+   chat.initStyling();
+   chat.initEvents();
+ },
 
-  },
-  initStyling: function () {
-    tasks.renderTasks();
-  },
-  initEvents: function () {
+ initStyling: function () {
+   chat.renderMessages();
+ },
 
-    $('section').on('click', '.showEditTask', function (event) {
-      event.preventDefault();
-      $(this).closest('article').find('.editTask').toggleClass('show');
-    });
+ initEvents: function () {
 
-    $('section').on('submit', '.editTask', function (event) {
-      event.preventDefault();
-      var taskId = $(this).closest('article').data('taskid');
-      var editedTask = {
-        title: $(this).find('input[name="editTitle"]').val(),
-      };
+   $('#createMessage').on('submit', function (event) {
+     event.preventDefault();
+     console.log("submit working");
+     var newMessage = {
+       user: $(this).find('input[name="userName"]').val(),
+       message: $(this).find('input[name="newMessage"]').val()
+     };
+     console.log(newMessage);
 
-      tasks.updateTask(taskId, editedTask);
+     chat.createMessage(newMessage);
+   });
 
+   $('section').on('click', '.delete-message', function (event) {
+     event.preventDefault();
+     var taskId = $(this).closest('article').data('taskid');
+     console.log(taskId);
+     chat.deleteMessage(taskId);
+   });
 
-    });
+ },
 
-    $('#createTask').on('submit', function (event) {
-      event.preventDefault();
-        var newTask = {
-          title: $(this).find('input[name="newTitle"]').val(),
-        };
-        $('input').val("");
-        $('textarea').val("");
-        tasks.createTask(newTask);
-    });
+ config: {
+   url: 'http://tiy-fee-rest.herokuapp.com/collections/snoopy',
+ },
 
-    $('section').on('click', '.deleteTask', function (event) {
-      event.preventDefault();
-      var taskId = $(this).closest('article').data('taskid');
-      console.log(taskId);
-      tasks.deleteTask(taskId);
-    });
+ render: function (data, tmpl, $el) {
+   var template = _.template(data, tmpl);
 
-    $('section').on('click', '.completeTask', tasks.completeTask);
+   $el.appendChild(template);
+ },
 
-  },
-  config: {
-    url: 'http://tiy-fee-rest.herokuapp.com/collections/catchat',
+ renderMessages: function () {
+   $.ajax({
+     url: chat.config.url,
+     type: 'GET',
+     success: function (chat) {
+       console.log(chat);
+       var template = _.template($('#mssgTmpl').html());
+       var markup = "";
+       chat.forEach(function (message, idx, arr) {
+         markup += template(message);
+       });
+       console.log('markup is.....', markup);
+       $('section').html(markup);
+     },
+     error: function (err) {
+       console.log(err);
+     }
+   });
+ },
 
-  },
-  render: function (data, tmpl, $el) {
-    var template = _.template(data, tmpl);
+ createMessage: function (message) {
+   console.log(message);
 
-    $el.appendChild(template);
-  },
-  renderTasks: function () {
-    $.ajax({
-      url: tasks.config.url,
-      type: 'GET',
-      success: function (tasks) {
-        console.log(tasks);
-        var template = _.template($('#taskTmpl').html());
-        var markup = "";
-        tasks.forEach(function (item, idx, arr) {
-          markup += template(item);
-        });
-        console.log('markup is.....', markup);
-        $('section').html(markup);
-      },
-      error: function (err) {
-        console.log(err);
-      }
-    });
-  },
-  createTask: function (task) {
+   $.ajax({
+     url: chat.config.url,
+     data: message,
+     type: 'POST',
+     success: function (data) {
+       console.log(data);
+       chat.renderMessages();
 
-    $.ajax({
-      url: tasks.config.url,
-      data: task,
-      type: 'POST',
-      success: function (data) {
-        console.log(data);
-        tasks.renderTasks();
-      },
-      error: function (err) {
-        console.log(err);
-      },
-    });
+       // Clears the message field on submit
+       $('input.message-input').val('');
+     },
+     error: function (err) {
+       console.log(err);
+     },
+   });
 
-  },
-  deleteTask: function (id) {
+ },
 
-    $.ajax({
-      url: tasks.config.url + '/' + id,
-      type: 'DELETE',
-      success: function (data) {
-        console.log(data);
-        tasks.renderTasks();
-      },
-      error: function (err) {
-        console.log(err);
-      }
-    });
+ deleteMessage: function (id) {
+
+   $.ajax({
+     url: chat.config.url + '/' + id,
+     type: 'DELETE',
+     success: function (data) {
+       console.log(data);
+       chat.renderMessages();
+     },
+     error: function (err) {
+       console.log(err);
+     }
+   });
+
+ },
 
 
+ completeTask: function (event) {
 
-  },
-  completeTask: function (event) {
+ },
 
-  $(this).siblings("h3").css("text-decoration", "line-through");
+ updateTask: function (id, task) {
 
-  },
-
-  updateTask: function (id, task) {
-
-    $.ajax({
-      url: tasks.config.url + '/' + id,
-      data: task,
-      type: 'PUT',
-      success: function (data) {
-        console.log(data);
-        tasks.renderTasks();
-      },
-      error: function (err) {
-        console.log(err);
-      }
-    });
-
-
-  },
+ },
 
 };
