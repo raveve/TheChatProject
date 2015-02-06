@@ -1,77 +1,65 @@
 $(document).ready(function () {
-  tasks.init();
+
+  chat.init();
+  // chat.deleteMessage("54d5021eb1cce4030000003e");
 
 });
 
 
-var tasks = {
+var chat = {
 
   init: function () {
-    tasks.initStyling();
-    tasks.initEvents();
+    chat.initStyling();
+    chat.initEvents();
+  },
 
-  },
   initStyling: function () {
-    tasks.renderTasks();
+    chat.renderMessages();
   },
+
   initEvents: function () {
 
-    $('section').on('click', '.showEditTask', function (event) {
+    $('#createMessage').on('submit', function (event) {
       event.preventDefault();
-      $(this).closest('article').find('.editTask').toggleClass('show');
-    });
-
-    $('section').on('submit', '.editTask', function (event) {
-      event.preventDefault();
-      var taskId = $(this).closest('article').data('taskid');
-      var editedTask = {
-        title: $(this).find('input[name="editTitle"]').val(),
+      console.log("submit working");
+      var newMessage = {
+        user: $(this).find('input[name="userName"]').val(),
+        message: $(this).find('input[name="newMessage"]').val()
       };
+      console.log(newMessage);
 
-      tasks.updateTask(taskId, editedTask);
-
-
+      chat.createMessage(newMessage);
     });
 
-    $('#createTask').on('submit', function (event) {
-      event.preventDefault();
-        var newTask = {
-          title: $(this).find('input[name="newTitle"]').val(),
-        };
-        $('input').val("");
-        $('textarea').val("");
-        tasks.createTask(newTask);
-    });
-
-    $('section').on('click', '.deleteTask', function (event) {
+    $('section').on('click', '.delete-message', function (event) {
       event.preventDefault();
       var taskId = $(this).closest('article').data('taskid');
       console.log(taskId);
-      tasks.deleteTask(taskId);
+      chat.deleteMessage(taskId);
     });
 
-    $('section').on('click', '.completeTask', tasks.completeTask);
-
   },
+
   config: {
-    url: 'http://tiy-fee-rest.herokuapp.com/collections/catchat',
-
+    url: 'http://tiy-fee-rest.herokuapp.com/collections/snoopy',
   },
+
   render: function (data, tmpl, $el) {
     var template = _.template(data, tmpl);
 
     $el.appendChild(template);
   },
-  renderTasks: function () {
+
+  renderMessages: function () {
     $.ajax({
-      url: tasks.config.url,
+      url: chat.config.url,
       type: 'GET',
-      success: function (tasks) {
-        console.log(tasks);
-        var template = _.template($('#taskTmpl').html());
+      success: function (chat) {
+        console.log(chat);
+        var template = _.template($('#mssgTmpl').html());
         var markup = "";
-        tasks.forEach(function (item, idx, arr) {
-          markup += template(item);
+        chat.forEach(function (message, idx, arr) {
+          markup += template(message);
         });
         console.log('markup is.....', markup);
         $('section').html(markup);
@@ -81,15 +69,20 @@ var tasks = {
       }
     });
   },
-  createTask: function (task) {
+
+  createMessage: function (message) {
+    console.log(message);
 
     $.ajax({
-      url: tasks.config.url,
-      data: task,
+      url: chat.config.url,
+      data: message,
       type: 'POST',
       success: function (data) {
         console.log(data);
-        tasks.renderTasks();
+        chat.renderMessages();
+
+        // Clears the message field on submit
+        $('input.message-input').val('');
       },
       error: function (err) {
         console.log(err);
@@ -97,44 +90,29 @@ var tasks = {
     });
 
   },
-  deleteTask: function (id) {
+
+  deleteMessage: function (id) {
 
     $.ajax({
-      url: tasks.config.url + '/' + id,
+      url: chat.config.url + '/' + id,
       type: 'DELETE',
       success: function (data) {
         console.log(data);
-        tasks.renderTasks();
+        chat.renderMessages();
       },
       error: function (err) {
         console.log(err);
       }
     });
 
-
-
   },
-  completeTask: function (event) {
 
-  $(this).siblings("h3").css("text-decoration", "line-through");
+
+  completeTask: function (event) {
 
   },
 
   updateTask: function (id, task) {
-
-    $.ajax({
-      url: tasks.config.url + '/' + id,
-      data: task,
-      type: 'PUT',
-      success: function (data) {
-        console.log(data);
-        tasks.renderTasks();
-      },
-      error: function (err) {
-        console.log(err);
-      }
-    });
-
 
   },
 

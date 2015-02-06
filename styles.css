@@ -13,7 +13,7 @@ Hat red: #ED1D25  
   font-family: 'Poiret One', cursive;
 }
 article {
-  background-color:#FFCC00;
+  background-color: #ED1D25;
   border: 2px solid black;
   margin-bottom: 5px;
 }
@@ -31,14 +31,24 @@ h1 {
   color: black;
   text-align: center;
 }
+p, h3 {
+  margin-left: 5px;
+}
+p {
+  margin-top: 5px;
+}
 .form-control {
-  background-color:#ED1D25;
-  border: 2px solid green;
-  margin: 0px;
-  padding: 0px;
+  background-color: #ED1D25;
+  border: 2px solid black;
+  margin: 0 0 5px 0;
+  padding: 0;
+  color: white;
+}
+.delete-message {
+  margin: 5px;
 }
 .custom-input {
-  margin-top: -350px;
+  margin-top: -400px;
 }
 .custom-input input::-webkit-input-placeholder {
   color: black;
@@ -53,16 +63,13 @@ h1 {
   color: black;
 }
 .btn-primary {
-  background-color:#FFCC00  ;
+  background-color: #4EB6E5;
   border: 2px solid black;
+  color: white;
 }
 .btn-primary:hover {
-  background-color:gray;
+  background-color: #81B05B;
   border: 2px solid black;
-}
-button {
-  background-color: #52c6d5  ;
-  color: white;
 }
 
 /*****TESTING AREA*****/
