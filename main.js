@@ -8,9 +8,10 @@ $(document).ready(function () {
 
 });
 
-function populateStorage() {
-  localStorage.setItem('article');
-};
+
+//function populateStorage() {
+//localStorage.setItem('article');
+// }
 
 var chat = {
 
@@ -30,11 +31,17 @@ var chat = {
       console.log("submit working");
       var newMessage = {
         user: $(this).find('input[name="userName"]').val(),
-        message: $(this).find('input[name="newMessage"]').val()
+        message: $(this).find('input[name="newMessage"]').val(),
       };
       console.log(newMessage);
 
       chat.createMessage(newMessage);
+
+      function populatestorage(newMessage) {
+        localStorage.setItem(newMessage);
+        console.log("my local storage")
+      }
+
 
     });
 

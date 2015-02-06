@@ -59,10 +59,6 @@ p {
 .custom-input {
   margin-top: -300px;
 }
-
-.name-input input:required + label {
-  color: #F27421;
-}
 .custom-input input::-webkit-input-placeholder {
  color: black;
 }
