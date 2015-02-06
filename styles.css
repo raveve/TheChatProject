@@ -13,9 +13,10 @@ Hat red: #ED1D25  
  font-family: 'Poiret One', cursive;
 }
 article {
- background-color: #ED1D25 ;
- border: 2px solid black;
- margin-bottom: 5px;
+
+  background-color: #ED1D25;
+  border: 2px solid black;
+  margin-bottom: 5px;
 }
 section {
  height: 800px;
@@ -37,18 +38,25 @@ p, h3 {
 p {
  margin-top: 5px;
 }
+p, h3 {
+  margin-left: 5px;
+}
+p {
+  margin-top: 5px;
+}
 .form-control {
- background-color: #ED1D25 ;
- border: 2px solid black;
- margin: 0 0 5px 0;
- padding: 0;
- color: white;
+
+  background-color: #ED1D25;
+  border: 2px solid black;
+  margin: 0 0 5px 0;
+  padding: 0;
+  color: white;
 }
 .delete-message {
- margin: 5px;
+  margin: 5px;
 }
 .custom-input {
- margin-top: -400px;
+  margin-top: -400px;
 }
 .custom-input input::-webkit-input-placeholder {
  color: black;
@@ -63,13 +71,13 @@ p {
  color: black;
 }
 .btn-primary {
- background-color: #4EB6E5 ;
- border: 2px solid black;
- color: white;
+  background-color: #4EB6E5;
+  border: 2px solid black;
+  color: white;
 }
 .btn-primary:hover {
- background-color: #81B05B ;
- border: 2px solid black;
+  background-color: #81B05B;
+  border: 2px solid black;
 }
 
 /*****TESTING AREA*****/
