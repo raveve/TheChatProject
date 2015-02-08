@@ -8,11 +8,12 @@
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <script type="html/template" id="mssgTmpl">
   <article data-taskid="<%= _id %>">
-  <p><%= user %></p>
+  <h4><%= user %></h4>
+  <h4 class="timestamp">[timestamp placeholder]</h4>
   <h3><%= message %></h3>
-  <button class="delete-message btn btn-primary btn-xs">Delete</button>
+  <button class="delete-message btn btn-primary btn-xs move-right js-chat-item-{uid}">Delete</button>
   </article>
- </script>
+  </script>
 </head>
 <body>
   <div class="row">
@@ -35,7 +36,7 @@
         <div class="form-group col-md-4 col-xs-4 custom-input">
           <input type="text" class="form-control name-input input-lg" name="userName" placeholder="Type your username here" required>
           <input type="text" class="form-control message-input input-lg" name="newMessage" placeholder="Type your message here">
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg active pull-right">Submit</button>
         </div>
       </form>
     </div>
