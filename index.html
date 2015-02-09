@@ -7,17 +7,26 @@
   <link rel="stylesheet" href="styles.css">
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <script type="html/template" id="mssgTmpl">
+<<<<<<< HEAD
    <article data-taskid="<%= _id %>">
    <h4><%= user %></h4>
    <h4 class="timestamp">[timestamp placeholder]</h4>
    <h3><%= message %></h3>
    <button class="delete-message btn btn-primary btn-xs move-right">Delete</button>
    </article>
+=======
+  <article data-taskid="<%= _id %>">
+  <h4><%= user %></h4>
+  <h4 class="timestamp">[timestamp placeholder]</h4>
+  <h3><%= message %></h3>
+  <button class="delete-message btn btn-primary btn-xs move-right js-chat-item-{uid}">Delete</button>
+  </article>
+>>>>>>> f27e8f4a1a7ea158eaa462c3e3d10ffac75eb93a
   </script>
 </head>
 <body>
   <div class="row">
-    <div class="col-md-10 col-xs-10 background col-md-offset-1 col-xs-offset-1">
+    <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 background">
       <div class="container row">
         <header class="col-md-4 col-xs-4 col-md-offset-1 col-xs-offset-1">
           <h1>Chat in the Hat</h1>
@@ -36,7 +45,7 @@
         <div class="form-group col-md-4 col-xs-4 custom-input">
           <input type="text" class="form-control name-input input-lg" name="userName" placeholder="Type your username here" required>
           <input type="text" class="form-control message-input input-lg" name="newMessage" placeholder="Type your message here">
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg active pull-right">Submit</button>
         </div>
       </form>
     </div>
