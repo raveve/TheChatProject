@@ -31,15 +31,12 @@ var chat = {
       console.log("submit working");
       var newMessage = {
         user: $(this).find('input[name="userName"]').val(),
-        message: $(this).find('input[name="newMessage"]').val(),
+        message: $(this).find('input[name="newMessage"]').val()
       };
+
       console.log(newMessage);
 
       chat.createMessage(newMessage);
-      function populatestorage(newMessage) {
-        localStorage.setItem(newMessage);
-        console.log("my local storage")
-      }
 
     });
 
@@ -92,6 +89,17 @@ var chat = {
       success: function (data) {
         console.log(data);
         chat.renderMessages();
+
+//TESTING//
+
+      var uid = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4);
+       console.log(uid);
+
+       localStorage.setItem(uid, JSON.stringify(data));
+       var restoredSession = JSON.parse(localStorage.getItem(uid));
+       console.log(restoredSession);
+
+
 
         // Clears the message field on submit
         $('input.message-input').val('');

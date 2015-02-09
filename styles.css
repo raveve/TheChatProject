@@ -3,7 +3,7 @@ Hat red: #ED1D25  
 ****************************/
 
 * {
- color: black;
+ color: white;
 }
 .background {
  background: url("drseuss.png");
@@ -18,6 +18,7 @@ article {
   background-color: #ED1D25;
   border: 2px solid black;
   margin-bottom: 5px;
+  border-radius: 3%;
 }
 section {
  height: 600px;
@@ -29,22 +30,26 @@ section {
 .show {
  display: block;
 }
+.timestamp {
+ color: black;
+}
 h1 {
  font-size: 52px;
  color: black;
  text-align: center;
 }
-p, h3 {
+h4, h3 {
+margin-left: 5px;
+}
+h4 {
+margin-top: 5px;
+display: inline;
+}
+h4, h3 {
  margin-left: 5px;
 }
-p {
+h4 {
  margin-top: 5px;
-}
-p, h3 {
-  margin-left: 5px;
-}
-p {
-  margin-top: 5px;
 }
 .form-control {
 
