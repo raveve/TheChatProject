@@ -1,13 +1,9 @@
 /********** COLORS **********
-Hat red: #ED1D25  
+Hat red: #ED1D25
 ****************************/
 
 * {
-<<<<<<< HEAD
- color: white;
-=======
   color: white;
->>>>>>> f27e8f4a1a7ea158eaa462c3e3d10ffac75eb93a
 }
 .background {
   background: url("drseuss.png");
@@ -21,8 +17,8 @@ article {
   background-color: #ED1D25;
   border: 2px solid black;
   margin-bottom: 5px;
-  border-radius: 3%;
 }
+
 section {
   height: 600px;
   overflow: scroll;
@@ -33,9 +29,6 @@ section {
 .show {
   display: block;
 }
-.timestamp {
- color: black;
-}
 h1 {
   font-size: 52px;
   color: black;
@@ -45,31 +38,20 @@ h1 {
   color: black;
 }
 h4, h3 {
-<<<<<<< HEAD
-margin-left: 5px;
-}
-h4 {
-margin-top: 5px;
-display: inline;
-}
-h4, h3 {
- margin-left: 5px;
-}
-h4 {
- margin-top: 5px;
-=======
   margin-left: 5px;
+  padding: 0px;
+  margin: 0px;
 }
 h4 {
   margin-top: 5px;
   display: inline;
+  font-size: 14px;
 }
 h4, h3 {
   margin-left: 5px;
 }
 h4 {
   margin-top: 5px;
->>>>>>> f27e8f4a1a7ea158eaa462c3e3d10ffac75eb93a
 }
 .form-control {
   background-color: #ED1D25;
