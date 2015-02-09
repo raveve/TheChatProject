@@ -1,17 +1,12 @@
 $(document).ready(function () {
   chat.init();
   // chat.deleteMessage("54d5021eb1cce4030000003e");
-  setInterval(function(){
+
+  setInterval(function (){
     chat.renderMessages();
   }, 1000);
 
 });
-
-
-
-//function populateStorage() {
-//localStorage.setItem('article');
-// }
 
 var chat = {
 
@@ -29,18 +24,18 @@ var chat = {
     $('#createMessage').on('submit', function (event) {
       event.preventDefault();
       console.log("submit working");
+
       var newMessage = {
         user: $(this).find('input[name="userName"]').val(),
         message: $(this).find('input[name="newMessage"]').val(),
       };
-      console.log(newMessage);
 
       chat.createMessage(newMessage);
+
       function populatestorage(newMessage) {
         localStorage.setItem(newMessage);
         console.log("my local storage")
       }
-
     });
 
     $('section').on('click', '.delete-message', function (event) {
@@ -49,7 +44,6 @@ var chat = {
       console.log(taskId);
       chat.deleteMessage(taskId);
     });
-
   },
 
   config: {
@@ -73,7 +67,6 @@ var chat = {
         chat.forEach(function (message, idx, arr) {
           markup += template(message);
         });
-        console.log('markup is.....', markup);
         $('section').html(markup);
       },
       error: function (err) {
@@ -93,6 +86,12 @@ var chat = {
         console.log(data);
         chat.renderMessages();
 
+        var uid = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4);
+        console.log(uid);
+
+        localStorage.setItem(uid, JSON.stringify(data));
+        var restoredSession = JSON.parse(localStorage.getItem(uid));
+
         // Clears the message field on submit
         $('input.message-input').val('');
       },
@@ -109,13 +108,14 @@ var chat = {
       url: chat.config.url + '/' + id,
       type: 'DELETE',
       success: function (data) {
-        console.log(data);
-        chat.renderMessages();
-      },
+      console.log(data);
+      chat.renderMessages();
+    },
       error: function (err) {
-        console.log(err);
-      }
-    });
+      console.log(err);
+    }
+  });
 
-  }
+ }
+
 };
