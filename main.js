@@ -28,6 +28,7 @@ var chat = {
       var newMessage = {
         user: $(this).find('input[name="userName"]').val() + ' \- ' + Date(),
         message: $(this).find('input[name="newMessage"]').val(),
+
       };
 
       chat.createMessage(newMessage);
