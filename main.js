@@ -26,7 +26,8 @@ var chat = {
       console.log("submit working");
 
       var newMessage = {
-        user: $(this).find('input[name="userName"]').val() + ' \- ' + Date(),
+        user: $(this).find('input[name="userName"]').val() + ' \- ' +
+moment().format('lll'),
         message: $(this).find('input[name="newMessage"]').val(),
 
       };
@@ -86,8 +87,8 @@ var chat = {
         var uid = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4);
         console.log(uid);
 
-        localStorage.setItem(uid, JSON.stringify(data));
-        var restoredSession = JSON.parse(localStorage.getItem(uid));
+        localStorage.setItem(data._id, JSON.stringify(data));
+        var restoredSession = JSON.parse(localStorage.getItem(data._id));
 
         // Clears the message field on submit
         $('input.message-input').val('');
